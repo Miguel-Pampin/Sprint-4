@@ -32,7 +32,10 @@ result=Number(average.toFixed(2));
 }
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(movies) {
-
+let copyMovies = movies.map(movie => movie.title).sort();
+let result = copyMovies.slice(0,20);
+console.log(result);
+return result;
 }
 
 // Exercise 5: Order by year, ascending
