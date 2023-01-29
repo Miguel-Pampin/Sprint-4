@@ -15,50 +15,63 @@ function getMoviesFromDirector(movies, director) {
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
-let moviesFiltered=[];
-let result=0;
-let  director= "Martin Scorsese";
+let moviesFiltered = [];
+let result = 0;
 function moviesAverageOfDirector(movies, director) {
- moviesFiltered = movies.filter(movie => movie.director.includes(director));
- moviesAverage();
- console.log(result);
- return result;
+  moviesFiltered = movies.filter(movie => movie.director.includes(director));
+  moviesAverage();
+  console.log(result);
+  return result;
 }
-function moviesAverage(){
-let filmSc=moviesFiltered.map(movie=>movie.score);
-let sumaScore=filmSc.reduce(function(a,b){ return a+b});
-let average=sumaScore/ filmSc.length;
-result=Number(average.toFixed(2));
+function moviesAverage() {
+  let filmSc = moviesFiltered.map(movie => movie.score);
+  let sumaScore = filmSc.reduce(function (a, b) { return a + b });
+  let average = sumaScore / filmSc.length;
+  result = Number(average.toFixed(2));
 }
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(movies) {
-let copyMovies = movies.map(movie => movie.title).sort();
-let result = copyMovies.slice(0,20);
-console.log(result);
-return result;
+  let copyMovies = movies.map(movie => movie.title).sort();
+  let result = copyMovies.slice(0, 20);
+  console.log(result);
+  return result;
 }
 
 // Exercise 5: Order by year, ascending
 function orderByYear(movies) {
-let moviesNew=[...movies];
-let result = moviesNew.sort((a,b) => {
-  if (a.year > b.year) {return 1};
-  if (a.year < b.year) {return -1};
-  if (a.title > b.title) {return 1};
-  if (a.title < b.title) {return -1}
-else{return 0};
-});
-console.log(result)
-return result;
+  let moviesNew = [...movies];
+  let result = moviesNew.sort((a, b) => {
+    if (a.year > b.year) { return 1 };
+    if (a.year < b.year) { return -1 };
+    if (a.title > b.title) { return 1 };
+    if (a.title < b.title) { return -1 }
+    else { return 0 };
+  });
+  console.log(result)
+  return result;
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
-
+let genre = "Sci-Fi";
+function moviesAverageByCategory(movies, genre) {
+  /*  moviesGenre = movies.filter(movie => movie.genre.includes(genre));
+   moviesGenre.map(movie => (movie.score !== "") ? moviesFiltered.push(movie) : "");
+    moviesAverage();
+   console.log(moviesFiltered, result);
+   return result; */
+ let moviesGenre = movies.filter((movie)=> movie.genre.includes(genre));
+ let moviesScore=[];
+  moviesGenre.map((movie) => (movie.score !== "") ? moviesScore.push(movie) : "");
+  let sumaScore = moviesScore.reduce((total, movie) => { return total + movie.score }, 0);
+  let average = sumaScore / moviesScore.length;
+  result = Number(average.toFixed(2));
+  console.log(moviesScore, result);
+  return result;
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(movies) {
+
 
 }
 
