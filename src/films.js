@@ -4,7 +4,6 @@ function getAllDirectors(movies) {
   let result = movies.map(movie => movie.director);
   console.log("EXERCICE 1 ->", result);
   return result;
-
 }
 
 // Exercise 2: Get the films of a certain director
@@ -20,7 +19,7 @@ let result = 0;
 function moviesAverageOfDirector(movies, director) {
   moviesFiltered = movies.filter(movie => movie.director.includes(director));
   moviesAverage();
-  console.log(result);
+  console.log("EXERCICE 3 ->", result);
   return result;
 }
 function moviesAverage() {
@@ -33,7 +32,7 @@ function moviesAverage() {
 function orderAlphabetically(movies) {
   let copyMovies = movies.map(movie => movie.title).sort();
   let result = copyMovies.slice(0, 20);
-  console.log(result);
+  console.log("EXERCICE 4 ->", result);
   return result;
 }
 
@@ -47,7 +46,7 @@ function orderByYear(movies) {
     if (a.title < b.title) { return -1 }
     else { return 0 };
   });
-  console.log(result)
+  console.log("EXERCICE 5 ->", result);
   return result;
 }
 
@@ -56,7 +55,7 @@ let genre = "Sci-Fi";
 function moviesAverageByCategory(movies, genre) {
   /*  moviesGenre = movies.filter(movie => movie.genre.includes(genre));
    moviesGenre.map(movie => (movie.score !== "") ? moviesFiltered.push(movie) : "");
-    moviesAverage();
+   moviesAverage();
    console.log(moviesFiltered, result);
    return result; */
  let moviesGenre = movies.filter((movie)=> movie.genre.includes(genre));
@@ -65,19 +64,26 @@ function moviesAverageByCategory(movies, genre) {
   let sumaScore = moviesScore.reduce((total, movie) => { return total + movie.score }, 0);
   let average = sumaScore / moviesScore.length;
   result = Number(average.toFixed(2));
-  console.log(moviesScore, result);
+  console.log("EXERCICE 6 ->", result);
   return result;
 }
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes(movies) {
-
+  let result =movies.map((movie) => {
+    let durationMovie = movie.duration.split(' ');
+    let durationMinutes =(parseInt(durationMovie[0]) * 60 || 0) + (parseInt(durationMovie[1]) || 0);
+    let movieMinutes = { ...movie,  duration: durationMinutes };
+    return movieMinutes;
+  });
+  console.log("EXERCICE 7->", result);;
+  return result;
 
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-
+function bestFilmOfYear(movies) {
+  
 }
 
 
